@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+    --color-primary: #f3f3f3;
+    --color-secondary: #171717;
+    --color-tertiary: #C4C4C4;
+    --color-button: #36294c;
+    --color-button-hover: #554473;
+    --color-text: #444444;
+    --color-white: #FFFFFF;
+}
+
+/* General */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--color-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+/* Input */
+.input-section {
+    flex: 60%;
+    background-color: var(--color-secondary);
+    border: 1px solid #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+}
+
+/* Titles */
+.section-title {
+    font-family: "Inter", serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* Containers*/
+.input-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+input {
+    color: #ebe5e5;
+    background-color: #222222;
+    font-family: "consolas", "sans-serif";
+}
+
+input:enabled {
+    outline: none;
+}
+
+input:hover {
+    background-color: #363636;
+}
+
+.input-name {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #383737;
+    border-radius: 25px 0 0 25px;
+    font-size: 16px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    margin-top: 30px;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* List */
+span {
+    list-style-type: none;
+    color: var(--color-text);
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+/* Botón de sortear título */
+
+button {
+    padding: 15px 30px;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    border: 2px solid #000;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px #0000004d;
+    cursor: pointer;
+}
+
+.button-add {
+    background-color: var(--color-tertiary);
+    color: var(--color-text);
+    border-radius: 0 25px 25px 0;
+}
+
+.button-add:hover {
+    background-color: #a1a1a1;
+}
+
+.button-draw {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    padding: 10px 40px;
+    color: var(--color-white);
+    background-color: var(--color-button);
+    font-size: 16px;
+}
+
+.button-restart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    padding: 10px 40px;
+    color: var(--color-white);
+    background-color: #e64343;
+    font-size: 16px;
+}
+
+.button-draw:hover {
+    background-color: var(--color-button-hover);
+}
+
+.button-restart:hover {
+    background-color: #e45454;
+}
+
+/* Table */
+table {
+    width: 20rem;
+    margin-top: 50px;
+    border-spacing: 0;
+    font-family: "Inter", sans-serif;
+}
+
+th, td {
+    width: 10rem;
+    border-bottom: 1px solid var(--color-tertiary);
+    color: var(--color-primary);
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: var(--color-button-hover)
+}
+
+tr:nth-child(even) {
+    background-color: #1d1d1d;
+}
+
+tr:hover {
+    background-color: var(--color-button-hover)
+}
+
+tr:first-child, th:first-child {
+    border-top-left-radius: 25px;
+}
+
+tr:first-child, th:last-child {
+    border-top-right-radius: 25px;
+}
+
+/* tr:last-child, td:first-child {
+    border-bottom-left-radius: 25px;
+}
+
+tr:last-child, td:last-child {
+    border-bottom-right-radius: 25px;
+} */
+
+/* Gift */
+.gift {
+    width: 25px;
+}
+
+/* Show Message */
+.messageBox {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.exclamation {
+    width: 20px;
+}
+
+.textMessage {
+    color: #e45454;
+    font-family: "consolas", "sans-serif";
+}
