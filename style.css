@@ -207,6 +207,7 @@ tr:last-child, td:last-child {
 
 /* Show Message */
 .messageBox {
+    visibility: hidden;
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -215,7 +216,7 @@ tr:last-child, td:last-child {
     margin-top: 0.5rem;
 }
 
-.exclamation {
+.icon {
     width: 20px;
 }
 

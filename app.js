@@ -2,8 +2,13 @@ let namesArray = [];
 
 function addName() {
     let nameInput = document.getElementById('nameInput').value;
+    let messageBox = document.getElementById('messageBox');
+    let testMessage = document.getElementById('textMessage');
+    let icon = document.getElementById('icon');
     if(nameInput === '') {
         console.log('Element not added because its empty');
+        testMessage.innerHTML = "Can't add an empty string"
+        messageBox.style.visibility = 'visible';
         return;
     }
     // namesArray[namesArray.length] = nameInput; //Option 1
@@ -13,6 +18,9 @@ function addName() {
     listItem.textContent = nameInput +" // "; //li equals the nameInput
 
     document.getElementById('inputList').appendChild(listItem); //takes the ul and adds a child to it (li)
+    // messageBox.style.visibility = 'hidden';
+    icon.src = 'assets/arrow.svg'
+    testMessage.innerHTML = "Name added"
     document.getElementById('nameInput').value = '';
     console.log(namesArray);
 }
