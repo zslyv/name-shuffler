@@ -21,7 +21,6 @@ function addName() {
         messageProps("assets/exclamation.svg", '#e45454', "Name already in the list", 'visible');
         return;
     }
-    
 
     // namesArray[namesArray.length] = nameInput; //Option 1
     namesArray.push(nameInput); //Option 2
@@ -53,6 +52,7 @@ function messageProps(asset, color, alertMessage, messageState) {
 function draw() {
     let usedNumbers = [];
     let usedNumbers2 = [];
+    
     //If the amount of elements it's the same as rows it goes back so it doesn't delete the table because of the while
     if(namesArray.length + 1 == drawResults.rows.length || namesArray.length === 1) {
         //the +1 is because namesArray starts at 0 and drawResults at 1 
@@ -98,9 +98,10 @@ function draw() {
         console.log(namesArray[number2]);
         console.log(number2);
     }
+    
+    document.getElementById('nameInput').value = '';
     inputDiv.style.display = 'none';
     resultsDiv.style.display = 'flex';
-
 }
 
 function restart() {
