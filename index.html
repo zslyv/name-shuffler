@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,40 +9,37 @@
 </head>
 
 <body>
-    <main class="main-content">
-        <section class="input-section">
-            <h2 class="section-title">Suffle names</h2>
-            <div class="input-wrapper">
-                <input type="text" id="nameInput" class="input-name" placeholder="Name">
-                <button class="button-add" onclick="addName()">Add</button>
-            </div>
+    <div id="inputDiv">
+        <h2 class="section-title">Suffle names</h2>
+        <div class="input-wrapper">
+            <input type="text" id="nameInput" class="input-name" placeholder="Name">
+            <button class="button-add" onclick="addName()">Add</button>
+        </div>
+    
+        <div class="messageBox" id="messageBox">
+            <img src="assets/exclamation.svg" alt="" class="icon" id="icon">
+            <p class="textMessage" id="textMessage"></p>
+        </div>
+    
+        <div class="button-container">
+            <button class="button-draw" onclick="draw()">Draw</button>
+            <button class="button-restart" onclick="restart()">Restart</button>
+        </div>
+    
+        <div id="inputList" style="margin-top: 15px;"></div>
+    </div>
 
-            <div class="messageBox" id="messageBox">
-                <img src="assets/exclamation.svg" alt="" class="icon" id="icon">
-                <p class="textMessage" id="textMessage"></p>
-            </div>
-
-            
-
-            <div class="button-container">
-                <button class="button-draw" onclick="draw()">Draw</button>
-                <button class="button-restart" onclick="restart()">Restart</button>
-            </div>
-
-            <div id="inputList" style="margin-top: 15px;"></div>
-
-            <div>
-                <table id="resultsTable">
-                    <tr>
-                        <th>From</th>
-                        <th><img src="assets/gift.svg" alt="" class="gift"></th>
-                        <th>For</th>
-                    </tr>
-                </table>
-            </div>
-
-        </section>
-    </main>
+    <div id="resultsDiv">
+        <table id="resultsTable">
+            <tr>
+                <th>From</th>
+                <th><img src="assets/gift.svg" alt="" class="gift"></th>
+                <th>For</th>
+            </tr>
+        </table>
+        <button class="button-restart" onclick="goBack()">Go back</button>
+    </div>
     <script src="app.js"></script>
 </body>
+
 </html>

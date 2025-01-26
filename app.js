@@ -1,32 +1,48 @@
 let namesArray = [];
+const messageBox = document.getElementById('messageBox');
+const testMessage = document.getElementById('textMessage');
+const messageIcon = document.getElementById('icon');
+const inputDiv = document.getElementById('inputDiv');
+const resultsDiv = document.getElementById('resultsDiv');
+const drawResults = document.getElementById('resultsTable');
 
 function addName() {
-    let nameInput = document.getElementById('nameInput').value;
-    let messageBox = document.getElementById('messageBox');
-    let testMessage = document.getElementById('textMessage');
-    let icon = document.getElementById('icon');
+    let nameInput = document.getElementById('nameInput').value.trim();
+
     if(nameInput === '') {
         console.log('Element not added because its empty');
-        testMessage.innerHTML = "Can't add an empty string"
-        messageBox.style.visibility = 'visible';
+        messageProps("assets/exclamation.svg", '#e45454', "Can't add an empty string", 'visible');
         return;
     }
+
+    if(namesArray.includes(nameInput)) {
+        console.log('Element not added because its already on the list');
+        messageProps("assets/exclamation.svg", '#e45454', "Name already in the list", 'visible');
+        return;
+    }
+    
+
     // namesArray[namesArray.length] = nameInput; //Option 1
     namesArray.push(nameInput); //Option 2
 
+
     let listItem = document.createElement('span'); //create the li element in listItem
-    listItem.textContent = nameInput +" // "; //li equals the nameInput
+    listItem.textContent = nameInput +" • "; //li equals the nameInput
 
     document.getElementById('inputList').appendChild(listItem); //takes the ul and adds a child to it (li)
-    // messageBox.style.visibility = 'hidden';
-    icon.src = 'assets/arrow.svg'
-    testMessage.innerHTML = "Name added"
+    messageProps('assets/arrow.svg', '#54afe4', "Name added", 'visible')
     document.getElementById('nameInput').value = '';
     console.log(namesArray);
 }
 
+function messageProps(asset, color, alertMessage, messageState) {
+    messageIcon.src = asset;
+    testMessage.style.color = color;
+    testMessage.innerHTML = alertMessage;
+    messageBox.style.visibility = messageState;
+}
+
 function draw() {
-    let drawResults = document.getElementById('resultsTable');
     let usedNumbers = [];
     let usedNumbers2 = [];
     //If the amount of elements it's the same as rows it goes back so it doesn't delete the table because of the while
@@ -74,13 +90,21 @@ function draw() {
         console.log(namesArray[number2]);
         console.log(number2);
     }
+    inputDiv.style.display = 'none';
+    resultsDiv.style.display = 'flex';
+
 }
 
 function restart() {
-    let drawResults = document.getElementById('resultsTable');
     namesArray.length = 0;
     document.getElementById('inputList').replaceChildren();
     while (drawResults.rows.length > 1) {
         drawResults.deleteRow(1);
     }
+    messageProps("assets/restart.svg", '#e0e54b', "List restarted", 'visible')
+}
+
+function goBack() {
+    inputDiv.style.display = 'flex';
+    resultsDiv.style.display = 'none';
 }
