@@ -5,6 +5,7 @@ const messageIcon = document.getElementById('icon');
 const inputDiv = document.getElementById('inputDiv');
 const resultsDiv = document.getElementById('resultsDiv');
 const drawResults = document.getElementById('resultsTable');
+const inputList = document.getElementById('inputList');
 
 function addName() {
     let nameInput = document.getElementById('nameInput').value.trim();
@@ -29,11 +30,18 @@ function addName() {
     let listItem = document.createElement('span'); //create the li element in listItem
     listItem.textContent = nameInput +" • "; //li equals the nameInput
 
-    document.getElementById('inputList').appendChild(listItem); //takes the ul and adds a child to it (li)
+    inputList.appendChild(listItem); //takes the ul and adds a child to it (li)
     messageProps('assets/arrow.svg', '#54afe4', "Name added", 'visible')
     document.getElementById('nameInput').value = '';
     console.log(namesArray);
 }
+
+document.getElementById('nameInput').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        addName();
+    }
+});
+
 
 function messageProps(asset, color, alertMessage, messageState) {
     messageIcon.src = asset;
@@ -97,7 +105,7 @@ function draw() {
 
 function restart() {
     namesArray.length = 0;
-    document.getElementById('inputList').replaceChildren();
+    inputList.replaceChildren();
     while (drawResults.rows.length > 1) {
         drawResults.deleteRow(1);
     }
